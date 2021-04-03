@@ -1,0 +1,13 @@
+.output {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row: auto;
+  grid-gap: 67px;
+}
+@media only screen and (max-width: 480px) {
+  .output {
+    padding: 0 40px;
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+  }
+}

@@ -1,0 +1,22 @@
+@import '../styles/Utils.scss';
+.country-card {
+  border-radius: 5px;
+  overflow: hidden;
+  background: $white;
+  img {
+    max-width: 100%;
+  }
+  .info {
+    padding: 20px 30px;
+    h3 {
+      padding-bottom: 12px;
+      font-weight: 800;
+    }
+    li {
+      margin: 2px 0;
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+}
