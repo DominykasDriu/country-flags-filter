@@ -4,11 +4,11 @@ import CountryCard from './CountryCard'
 import {CountriesContext} from '../App'
 
 export default function Output() {
-  const countries = useContext(CountriesContext)
-
+  const countriesData = useContext(CountriesContext)
+  console.log(countriesData);
   return (
     <div className='output'>
-      {countries.map((e, index) => (
+      {countriesData.countries.map((e, index) => (
         <CountryCard 
         key={index}
         flag={e.flag}

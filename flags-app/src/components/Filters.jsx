@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import './Filters.scss'
+import {CountriesContext} from '../App'
 
 export default function Filters() {
+  const [regionSelector, setRegionSelector] = useState(false)
+
+  const countriesData = useContext(CountriesContext)
+
+  const searchRegion = (region) => {
+    setRegionSelector(!regionSelector)
+    countriesData.dispatch(region)
+  }
+
   return (
     <div className='filters-wrapper'>
       <div className="input">
@@ -11,27 +21,20 @@ export default function Filters() {
         <input type='text' placeholder='Search for a country...'/>
       </div>
 
-
       <div className="region-filter-wrapper">
-        <button>Filter by Region <FiChevronDown size='20px' className='icon'/></button>
-        <div className="options">
+        <button onClick={() => setRegionSelector(!regionSelector)}>Filter by Region 
+        {regionSelector ? <FiChevronUp size='20px' className='icon'/> : <FiChevronDown size='20px' className='icon'/>}
+        </button>
+        <div className={regionSelector ? 'active' : ''}>
           <ul>
-            <li>Africa</li>
-            <li>America</li>
-            <li>Asia</li>
-            <li>Europe</li>
-            <li>Oceania</li>
+            <li onClick={() => searchRegion('africa')}>Africa</li>
+            <li onClick={() => searchRegion('americas')}>America</li>
+            <li onClick={() => searchRegion('asia')}>Asia</li>
+            <li onClick={() => searchRegion('europe')}>Europe</li>
+            <li onClick={() => searchRegion('oceania')}>Oceania</li>
           </ul>
         </div>
       </div>
-      {/* <select>
-        <option style={{display: 'none'}} disabled selected>Filter by Region</option>
-        <option value='africa'>Africa</option>
-        <option value='america'>America</option>
-        <option value='asia'>Asia</option>
-        <option value='europe'>Europe</option>
-        <option value='oceania'>Oceania</option>
-      </select> */}
     </div>
   )
 }
