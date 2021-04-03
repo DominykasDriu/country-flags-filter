@@ -31,6 +31,7 @@ function App() {
     fetch(URI)
     .then(res => res.json())
     .then(data => {
+      console.log(data);
       if (data.status === 404) return setCountries('error')
       setCountries(data)
     })
