@@ -3,8 +3,11 @@
   border-radius: 5px;
   overflow: hidden;
   background: $white;
-  img {
-    max-width: 100%;
+  .image {
+    height: 260px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .info {
     padding: 20px 30px;
