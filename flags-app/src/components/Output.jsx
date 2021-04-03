@@ -20,7 +20,7 @@ export default function Output() {
           <Route exact path='/'>
               {
             // Check if API returned 404  
-            countriesData.countries === 'error' ? <p>Nothing found</p> : 
+            countriesData.countries === 'error' ? <p className='not-found'>Nothing found</p> : 
             // If API is still loading data show loading
             countriesData.countries === 'loading' ? <div className='loader'></div> :
             // If data is not empty render
