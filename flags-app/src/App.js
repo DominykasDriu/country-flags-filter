@@ -6,8 +6,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Filters />
-      <Output />
+      <main>
+        <Filters />
+        <Output />
+      </main>
     </div>
   );
 }
