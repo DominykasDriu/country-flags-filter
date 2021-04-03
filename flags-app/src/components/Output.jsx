@@ -8,7 +8,14 @@ export default function Output() {
   console.log(countriesData);
   return (
     <div className='output'>
-      {countriesData.countries.map((e, index) => (
+      
+      {
+      // Check if API returned 404  
+      countriesData.countries === 'error' ? <p>Nothing found</p> : 
+      // If API is still loading data show loading
+      countriesData.countries === 'loading' ? <div className='loader'></div> :
+      // If data is not empty render
+      countriesData.countries.map((e, index) => (
         <CountryCard 
         key={index}
         flag={e.flag}
@@ -17,7 +24,8 @@ export default function Output() {
         region={e.region}
         capital={e.capital}
         />
-      ))}
+      ))
+      }
     </div>
   )
 }

@@ -18,7 +18,7 @@ export default function Filters() {
     <div className='filters-wrapper'>
       <div className="input">
         <AiOutlineSearch size='24px' className='icon'/>
-        <input type='text' placeholder='Search for a country...'/>
+        <input type='text' placeholder='Search for a country...' onChange={(e) => countriesData.dispatch(e.target.value)}/>
       </div>
 
       <div className="region-filter-wrapper">
