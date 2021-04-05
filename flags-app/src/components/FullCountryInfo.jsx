@@ -21,6 +21,8 @@ export default function FullCountryInfo() {
     .then(res => res.json())
     .then(data => {
       setInfo(data)
+      // Set document title to country name
+      document.title = data.name
     })
     .catch(err => console.log(err))
   }, [id])

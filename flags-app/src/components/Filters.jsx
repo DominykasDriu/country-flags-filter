@@ -10,6 +10,7 @@ export default function Filters() {
   const countriesData = useContext(CountriesContext)
   // Handle region selection
   const searchRegion = (region) => {
+    document.title = region.charAt(0).toUpperCase() + region.slice(1)
     // Change state so the chevron changes
     setRegionSelector(!regionSelector)
     // Send request to App so it displays countries by region
@@ -21,7 +22,10 @@ export default function Filters() {
       <div className="input">
         <AiOutlineSearch size='24px' className='icon'/>
         {/* Upon writing send request to show filtered countries from App */}
-        <input type='text' placeholder='Search for a country...' onChange={(e) => countriesData.dispatch(e.target.value)}/>
+        <input type='text' placeholder='Search for a country...' onChange={(e) => {
+          countriesData.dispatch(e.target.value)
+          document.title = 'Countries'
+        }}/>
       </div>
 
       <div className="region-filter-wrapper">
