@@ -22,16 +22,18 @@ const setURI = (currState, action) => {
 }
 
 function App() {
+  // Reducer that generates link to filter the countries by user input or region selection
   const [URI, dispatch] = useReducer(setURI, 'https://restcountries.eu/rest/v2/all')
-
+  // State that holds filtered countries data, and is passed to Output component
   const [countries, setCountries] = useState([])
 
   useEffect(() => {
+    // Set loader for when the data is being fetched
     setCountries('loading')
     fetch(URI)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      // Set nothing found message if there is no countries found by the query
       if (data.status === 404) return setCountries('error')
       setCountries(data)
     })

@@ -9,17 +9,17 @@ import {
 import './FullCountryInfo.scss'
 
 export default function FullCountryInfo() {
+  // Take country 3 letters country code from the domain parameters
   let { id } = useParams()
+  // Country data state
   const [info, setInfo] = useState([])
 
   useEffect(() => {
+    // Set loader whilst data is loaded
     setInfo('loading')
     fetch(`https://restcountries.eu/rest/v2/alpha/${id}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
-      // if (data.status === 404) return setCountries('error')
-      // setCountries(data)
       setInfo(data)
     })
     .catch(err => console.log(err))
@@ -28,6 +28,7 @@ export default function FullCountryInfo() {
   return (
     <div className='country-info-wrapper'>
       <Route>
+        {/* Send user back to main page */}
         <Link to='/'>
           <button className='back'><BsArrowLeft/>Back</button>
         </Link>
@@ -55,11 +56,13 @@ export default function FullCountryInfo() {
         <div className="border-countries-wrapper">
           <p>Border Countries:</p>
           <Route>
+            {/* If any neighbouring countries exists create buttons to easily access them */}
             {info.borders && info.borders.length > 1 ? info.borders.map(e => (
               <Link to={e}>
                 <button>{e}</button>
               </Link>
             ))
+            // If there are no neighbouring countries display the message
             : (<p style={{paddingLeft: '10px', fontWeight: 300}}>No countries have borders with {info.name}</p>)}
           </Route>
         </div>

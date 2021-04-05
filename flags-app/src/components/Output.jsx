@@ -28,6 +28,7 @@ export default function Output() {
             countriesData.countries === 'loading' ? <div className='loader'></div> :
             // If data is not empty render
             countriesData.countries.map((e, index) => (
+                // Add 3 letter country code to the URL upon clicking on country card
                 <Link to={`/country/${e.alpha3Code}`}>
                 <CountryCard 
                 key={index}
@@ -42,6 +43,7 @@ export default function Output() {
             }
               </div>
           </Route>
+          {/* Router that handles single country component to be opened with 3 letter country code as parameter*/}
           <Route path='/country/:id'>
             <FullCountryInfo />
           </Route>

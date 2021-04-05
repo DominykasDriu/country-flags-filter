@@ -6,11 +6,13 @@ import {CountriesContext} from '../App'
 
 export default function Filters() {
   const [regionSelector, setRegionSelector] = useState(false)
-
+  // Recieve reducer dispatch function from App component
   const countriesData = useContext(CountriesContext)
-
+  // Handle region selection
   const searchRegion = (region) => {
+    // Change state so the chevron changes
     setRegionSelector(!regionSelector)
+    // Send request to App so it displays countries by region
     countriesData.dispatch(region)
   }
 
@@ -18,13 +20,16 @@ export default function Filters() {
     <div className='filters-wrapper'>
       <div className="input">
         <AiOutlineSearch size='24px' className='icon'/>
+        {/* Upon writing send request to show filtered countries from App */}
         <input type='text' placeholder='Search for a country...' onChange={(e) => countriesData.dispatch(e.target.value)}/>
       </div>
 
       <div className="region-filter-wrapper">
+        {/* Open region selection tab upon click, and change chevron */}
         <button onClick={() => setRegionSelector(!regionSelector)}>Filter by Region 
         {regionSelector ? <FiChevronUp size='20px' className='icon'/> : <FiChevronDown size='20px' className='icon'/>}
         </button>
+        {/* Show/close region selection */}
         <div className={regionSelector ? 'active' : ''}>
           <ul>
             <li onClick={() => searchRegion('africa')}>Africa</li>
