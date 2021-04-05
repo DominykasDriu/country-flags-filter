@@ -13,6 +13,7 @@ header {
     display: flex;
     align-items: center;
     font-weight: 600;
+    cursor: pointer;
     p {
       margin-left: 8px;
     }
@@ -23,7 +24,7 @@ header {
   header {
     padding: 35px 15px;
     h1 {
-      font-size: 16px;
+      font-size: 20px;
     }
     .color-mode-toggle {
       p {

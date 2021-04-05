@@ -1,4 +1,5 @@
 import './styles/App.scss'
+import './styles/DarkTheme.scss'
 import Header from "./components/Header";
 import Output from "./components/Output";
 import React, { useEffect, useReducer, useState } from 'react';

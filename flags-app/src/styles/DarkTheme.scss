@@ -1,0 +1,15 @@
+body.dark {
+  p,h2,h1,li,a,input,button,svg {
+    color: white !important;
+  }
+  main,header {
+    background: hsl(207, 26%, 17%);
+  }
+  .country-card,input,button,.active {
+    background: hsl(209, 23%, 22%) !important;
+    box-shadow: none !important;
+  }
+  header {
+    border-bottom: hsl(208, 28%, 12%) 3px solid;
+  }
+}

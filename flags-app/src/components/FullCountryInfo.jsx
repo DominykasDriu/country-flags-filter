@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 // import { useParams } from 'react-router'
 import { BsArrowLeft } from 'react-icons/bs'
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
   Link,
   useParams
