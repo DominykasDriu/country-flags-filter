@@ -37,7 +37,6 @@ export default function FullCountryInfo() {
       {info === 'loading' ? <div className='loader'></div> :
       
       <div className="info-wrapper">
-        <div className='loader'></div>
       <img src={info.flag} alt=""/>
       <div className="text-info">
         <h2>{info.name}</h2>
