@@ -7,7 +7,8 @@
   grid-gap: 67px;
   .not-found {
     position: absolute;
-    margin-left: calc(50% - 101px);
+    width: 100%;
+    text-align: center;
   }
   .loader {
     position: absolute;
@@ -27,7 +28,6 @@
 }
 @media only screen and (max-width: 480px) {
   .output {
-    padding: 0 40px;
     grid-template-columns: 1fr;
     grid-gap: 40px;
   }

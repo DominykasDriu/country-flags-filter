@@ -1,5 +1,4 @@
 import './styles/App.scss'
-import Filters from "./components/Filters";
 import Header from "./components/Header";
 import Output from "./components/Output";
 import React, { useEffect, useReducer, useState } from 'react';
@@ -43,7 +42,6 @@ function App() {
       <Header />
       <main>
         <CountriesContext.Provider value={{countries, dispatch}}>
-          <Filters />
           <Output />
         </CountriesContext.Provider>
       </main>

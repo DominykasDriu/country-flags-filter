@@ -1,4 +1,8 @@
 @import '../styles/Utils.scss';
+a {
+  text-decoration: none;
+  color: black;
+}
 .country-card {
   border-radius: 5px;
   overflow: hidden;

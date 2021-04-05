@@ -9,15 +9,17 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Filters from './Filters';
 
 export default function Output() {
   const countriesData = useContext(CountriesContext)
-  // let {id} = useParams()
+
   return (
     <div>
       <Router>
         <Switch>
           <Route exact path='/'>
+              <Filters />
               <div className='output'>
               {
             // Check if API returned 404  
