@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 import {BsArrowLeft} from 'react-icons/bs'
+import './FullCountryInfo.scss'
 
 export default function FullCountryInfo() {
   let { id } = useParams()
 
   useEffect(() => {
-    fetch(`https://restcountries.eu/rest/v2/name/${id}`)
+    fetch(`https://restcountries.eu/rest/v2/alpha/${id}`)
     .then(res => res.json())
     .then(data => {
       console.log(data);
@@ -14,11 +15,11 @@ export default function FullCountryInfo() {
       // setCountries(data)
     })
     .catch(err => console.log(err))
-  }, [])
+  }, [id])
 
   return (
-    <div>
-      <button><BsArrowLeft/>Back</button>
+    <div className='country-info-wrapper'>
+      <button className='back'><BsArrowLeft/>Back</button>
       <div className="info-wrapper">
         <img src="https://restcountries.eu/data/alb.svg" alt=""/>
         <div className="text-info">
@@ -32,21 +33,19 @@ export default function FullCountryInfo() {
               <li><span>Capital:</span> Burssels</li>
             </ul>
             <ul>
-              <li><span>Top Level Domain:</span>.be</li>
+              <li><span>Top Level Domain:</span> .be</li>
               <li><span>Currencies:</span> Euro</li>
               <li><span>Languages:</span> Dutch, German</li>
             </ul>
           </div>
           <div className="border-countries-wrapper">
-            <p>Border Countries</p>
+            <p>Border Countries:</p>
             <button>France</button>
             <button>Geramny</button>
             <button>Netherlands</button>
           </div>
         </div>
       </div>
-
-      <p>{id}</p>
     </div>
   )
 }

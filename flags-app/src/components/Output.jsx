@@ -14,10 +14,11 @@ export default function Output() {
   const countriesData = useContext(CountriesContext)
   // let {id} = useParams()
   return (
-    <div className='output'>
+    <div>
       <Router>
         <Switch>
           <Route exact path='/'>
+              <div className='output'>
               {
             // Check if API returned 404  
             countriesData.countries === 'error' ? <p className='not-found'>Nothing found</p> : 
@@ -25,7 +26,7 @@ export default function Output() {
             countriesData.countries === 'loading' ? <div className='loader'></div> :
             // If data is not empty render
             countriesData.countries.map((e, index) => (
-              <Link to={`/country/${e.name.replace(/[,() ]+/g, '').toLowerCase()}`}>
+                <Link to={`/country/${e.alpha3Code}`}>
                 <CountryCard 
                 key={index}
                 flag={e.flag}
@@ -37,6 +38,7 @@ export default function Output() {
               </Link>
             ))
             }
+              </div>
           </Route>
           <Route path='/country/:id'>
             <FullCountryInfo />
@@ -49,34 +51,52 @@ export default function Output() {
 }
 
 
-
 // import React, { useContext } from 'react'
 // import './Output.scss'
 // import CountryCard from './CountryCard'
+// import FullCountryInfo from './FullCountryInfo';
 // import {CountriesContext} from '../App'
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 // export default function Output() {
 //   const countriesData = useContext(CountriesContext)
-
+//   // let {id} = useParams()
 //   return (
 //     <div className='output'>
-//       {
-//       // Check if API returned 404  
-//       countriesData.countries === 'error' ? <p>Nothing found</p> : 
-//       // If API is still loading data show loading
-//       countriesData.countries === 'loading' ? <div className='loader'></div> :
-//       // If data is not empty render
-//       countriesData.countries.map((e, index) => (
-//         <CountryCard 
-//         key={index}
-//         flag={e.flag}
-//         name={e.name}
-//         pop={e.population}
-//         region={e.region}
-//         capital={e.capital}
-//         />
-//       ))
-//       }
+//       <Router>
+//         <Switch>
+//           <Route exact path='/'>
+//               {
+//             // Check if API returned 404  
+//             countriesData.countries === 'error' ? <p className='not-found'>Nothing found</p> : 
+//             // If API is still loading data show loading
+//             countriesData.countries === 'loading' ? <div className='loader'></div> :
+//             // If data is not empty render
+//             countriesData.countries.map((e, index) => (
+//                 <Link to={`/country/${e.alpha3Code}`}>
+//                 <CountryCard 
+//                 key={index}
+//                 flag={e.flag}
+//                 name={e.name}
+//                 pop={e.population}
+//                 region={e.region}
+//                 capital={e.capital}
+//                 />
+//               </Link>
+//             ))
+//             }
+//           </Route>
+//           <Route path='/country/:id'>
+//             <FullCountryInfo />
+//           </Route>
+//         </Switch>
+//       </Router>
+      
 //     </div>
 //   )
 // }
